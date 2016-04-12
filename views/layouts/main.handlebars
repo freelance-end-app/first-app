@@ -25,9 +25,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class=" mainNav">
       <ul class="nav navbar-nav">
-        <li><a href="/about">Project name</a></li>
         <li><a href="/">Home</a></li>
         <li><a href="/login">Login</a></li>
+        {{#if user}}
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/Edit">Edit</a></li>
+
+        {{/if}}
         <li><a href="/singup">Sing Up</a></li>
 
       </ul>

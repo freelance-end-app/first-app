@@ -1,4 +1,11 @@
+<form name  action="/send" method="post" enctype="multipart/form-data">
 
+<label for="inputPicture">User profile picture</label>
+<input type="file" class="form-control" id="inputPicture" placeholder="Picture" name="image">
+
+<button type="submit" class="btn btn-default">Send</button>
+
+</form>
 <form action="/singup" method="POST">
   <legend> Sing Up  </legend>
   <div class="form-group">
@@ -14,10 +21,11 @@
     <input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username">
   </div>
   <div class="form-group">
-    <label for="inputPicture">User profile picture</label>
-    <input type="file" class="form-control" id="inputPicture" placeholder="Picture">
+    <label for="inputPicPath">Picture</label>
+    <input type="text" class="form-control" id="inputPicPath" name="picture" value="https://s3-us-west-2.amazonaws.com/yurakovalchuktest/{{name}}">
   </div>
-  <div class="form-group">
+
+  <div class="form-group pass">
     <label for="inputPassword">Password</label>
     <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
   </div>
