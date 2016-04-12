@@ -31,7 +31,7 @@ app.get('/send', function(req, res) {
             res.end("error");
         } else {
             console.log("Message sent: " + response.message);
-            res.end("sent");
+            res.end("<h1> check your email<h1>");
         }
     });
 });
@@ -42,13 +42,14 @@ app.get('/verify', function(req, res) {
         console.log("Domain is matched. Information is from Authentic email");
         if (req.query.id == rand) {
             console.log("email is verified");
-            res.end("<h1>Email " + mailOptions.to + " is been Successfully verified");
+            res.end("<h1><a href=" + "http://localhost:8000/" + ">Your Email is been Successfully verified, click on this link</a>");
 
             User.update({ email: mailOptions.to }, { $set: { isVerified: true } }, function(err, user) {
                 if (err) {
                     res.send(err);
                 } else {
-                    res.send(user);
+                    res.end("<link href='http://localhost:8000/'>");
+
                 }
             });
         } else {
