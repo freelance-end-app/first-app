@@ -13,9 +13,7 @@ document.getElementById("uploadPhotoBtn").onclick = function(){
       var src = 'https://process.filestackapi.com/' + yourApiKey +
         '/circle/' + Blob.url;
       image.setAttribute('src', src);
-      console.log(src);
-    var imgn =  $('<img>').attr('src', src);
-      $('body').append(imgn);
+      $('#inputPicPath').val(src);
     }
   );
 };

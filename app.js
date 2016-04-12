@@ -78,7 +78,11 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+app.post('/avatar', function(req, res){
+  console.log(req.body);
+  console.log(req.source);
+  console.log(res);
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 

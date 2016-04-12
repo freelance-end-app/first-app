@@ -48,7 +48,7 @@ app.get('/verify', function(req, res) {
                 if (err) {
                     res.send(err);
                 } else {
-                    res.end("<link href='http://localhost:8000/'>");
+                    res.end("send");
 
                 }
             });
