@@ -1,4 +1,6 @@
 {
   "port": "8000",
-  "db_path": "mongodb://lanzeron:dovbusha@ds019960.mlab.com:19960/nodeappdb"
+  "db_path": "mongodb://lanzeron:dovbusha@ds019960.mlab.com:19960/nodeappdb",
+  "emailUser":"fedyshyn.roma@gmail.com",
+  "emailPass":"hQ13242128Wqe1"
 }

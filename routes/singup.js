@@ -3,19 +3,12 @@ var User = require('../models/User');
 
 var passport = require('passport');
 var fs = require('fs');
-var S3FS = require('s3fs');
-var multipartyCon = require('connect-multiparty');
-var multipartyMiddelwere = multipartyCon();
-var s3fsImpl = new S3FS('yurakovalchuktest', {
-    acl: 'FULL_CONTROL',
-    accessKeyId: 'AKIAJYVBUAWAYAI3ZPMQ',
-    secretAccessKey: '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'
-});
-
 
 
 app.get('/singup', function(req, res) {
-    res.render('singUp');
+    res.render('singUp',{
+      user:req.user
+    });
 });
 
 app.post('/singup', function(req, res) {
@@ -36,21 +29,44 @@ app.post('/singup', function(req, res) {
     });
 
 });
+app.get('/edit', function(req, res) {
+  var user = req.user.username;
 
+  if (!user) {
+    res.redirect('/');
+  }
 
-app.post('/send', function(req, res) {
-            console.log(req.host);
-            var file = req.files.image;
-            var stream = fs.createReadStream(file.path);
-            return s3fsImpl.writeFile(file.originalFilename, stream).then(function() {
-                fs.unlink(file.path, function(err) {
-                    if (err) console.error(err);
-                });
-                res.render('singUp', {
-                    name: file.originalFilename
-                });
-                var data = {
-                    name: file.originalFilename
-                };
-            });
+  User.findOne({ username: user }, function(err, user){
+    if(err){
+      res.redirect('/');
+    }
+    res.render('singUp', {
+      user: req.user
+    });
+  });
+});
+
+app.post('/edit', function(req, res) {
+  var user = req.user.username;
+
+  if (!user) {
+    res.redirect('/');
+  }
+
+  User.findOne({ username: user }, function(err, user){
+    if(err){
+      res.redirect('/');
+    }
+
+    user.username = req.body.username,
+    user.email = req.body.email,
+    user.password = req.body.password,
+    user.name = req.body.name
+
+    user.save(function(err) {
+      req.logIn(user, function(err) {
+        res.redirect('/');
+      });
+    });
+  });
 });

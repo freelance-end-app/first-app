@@ -4,7 +4,9 @@ var User = require('../models/User');
 
 
 app.get('/login', function(req, res){
-  res.render('login');
+  res.render('login',{
+    user:req.user
+  });
 });
 app.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
@@ -14,7 +16,8 @@ app.post('/login', function(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) return next(err);
-      return res.render('home', {user:user});
+
+      res.redirect('/');
     });
   })(req, res, next);
 });

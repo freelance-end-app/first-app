@@ -1,11 +1,43 @@
-<form name  action="/send" method="post" enctype="multipart/form-data">
+<div class="picture">
 
-<label for="inputPicture">User profile picture</label>
-<input type="file" class="form-control" id="inputPicture" placeholder="Picture" name="image">
 
-<button type="submit" class="btn btn-default">Send</button>
+<div class="form-group">
+  <label for="imgPlaceholder">Name</label>
+  <input type="file" class="form-control" name="Pic" id="imgPlaceholder">
+</div>
+<button class="btn btn-default" id="uploadPhotoBtn">submit</button>
+</div>
 
+{{#if user}}
+<form action="/singup" method="POST">
+  <legend> Sing Up  </legend>
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" value="{{user.name}}">
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{user.email}}">
+  </div>
+  <div class="form-group">
+    <label for="inputUsername">Username</label>
+    <input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username" value="{{user.username}}">
+  </div>
+  <div class="form-group">
+    <label for="inputPicPath">Picture</label>
+    <input type="text" class="form-control" id="inputPicPath" name="picture">
+  </div>
+
+  <div class="form-group pass">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+  </div>
+
+
+
+  <button type="submit" class="btn btn-default">Sing Up</button>
 </form>
+{{else}}
 <form action="/singup" method="POST">
   <legend> Sing Up  </legend>
   <div class="form-group">
@@ -22,7 +54,7 @@
   </div>
   <div class="form-group">
     <label for="inputPicPath">Picture</label>
-    <input type="text" class="form-control" id="inputPicPath" name="picture" value="https://s3-us-west-2.amazonaws.com/yurakovalchuktest/{{name}}">
+    <input type="text" class="form-control" id="inputPicPath" name="picture">
   </div>
 
   <div class="form-group pass">
@@ -34,3 +66,4 @@
 
   <button type="submit" class="btn btn-default">Sing Up</button>
 </form>
+{{/if}}
