@@ -16,6 +16,7 @@ app.post('/singup', function(req, res) {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
+        picture: req.body.picture,
         password: req.body.password,
         isVerified: false
     });
@@ -47,26 +48,18 @@ app.get('/edit', function(req, res) {
 });
 
 app.post('/edit', function(req, res) {
-  var user = req.user.username;
 
-  if (!user) {
-    res.redirect('/');
-  }
+  User.update({username:req.body.username},
+				{ $set: {
+					name:req.body.name,
+					email:req.body.email,
+          picture:req.body.picture
+				}
+				}, function (err, data){
+					if (err) {
+						res.json(err);
+					} else res.redirect('/');
+				});
 
-  User.findOne({ username: user }, function(err, user){
-    if(err){
-      res.redirect('/');
-    }
 
-    user.username = req.body.username,
-    user.email = req.body.email,
-    user.password = req.body.password,
-    user.name = req.body.name
-
-    user.save(function(err) {
-      req.logIn(user, function(err) {
-        res.redirect('/');
-      });
-    });
-  });
 });
