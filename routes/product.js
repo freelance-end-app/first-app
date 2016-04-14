@@ -3,7 +3,7 @@ var passport = require('passport');
 var Product = require('../models/product');
 
 
-app.get('/Product', function(req, res){
+app.get('/product', function(req, res){
   if(req.user) {
 
   Product.find({userId:req.user.id}, function(err, products){
@@ -32,8 +32,24 @@ product.save(function(err){
   if (err) {
   res.send(err);
   } else {
-    res.redirect('/addProduct');
+    res.redirect('/product');
   }
 });
 
+});
+
+app.post('/editProduct', function(req, res){
+  Product.update({name:req.body.selectName},{
+    $set:{
+      name:req.body.name,
+      price:req.body.price
+    }
+  }, function(err, data){
+    if (err){
+      res.send(err);
+    } else {
+      res.redirect('/product');
+    }
+
+  });
 });

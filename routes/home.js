@@ -8,9 +8,9 @@ var Products = require('../models/product');
 
 
 app.get('/', function(req, res){
-  if(req.user) {
-
-  Products.find({userId:req.user.id}, function(err, products){
+  // if(req.user) {
+    Products.find(function(err, products){
+//   Products.find({userId:req.user.id}, function(err, products){
     if (err) {
       res.send(err);
     }
@@ -18,9 +18,8 @@ app.get('/', function(req, res){
     user:req.user,
     products:products
   });
-});
-} else
-res.render('home', {
-  user:req.user
+
+
+// });
 });
 });
