@@ -17,3 +17,8 @@ document.getElementById("uploadPhotoBtn").onclick = function(){
     }
   );
 };
+
+$(document).ready(function() {
+    $('select').material_select();
+});
+
