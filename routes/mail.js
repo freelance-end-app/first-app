@@ -43,7 +43,7 @@ app.get('/verify', function(req, res) {
         console.log("Domain is matched. Information is from Authentic email");
         if (req.query.id == rand) {
             console.log("email is verified");
-            res.end("<h1><a href=" + app.get('port') + ">Your Email is been Successfully verified, click on this link</a>");
+            res.end("<h1><a href=" +"/"+ ">Your Email is been Successfully verified, click on this link</a>");
 
             User.update({ email: mailOptions.to }, { $set: { isVerified: true } }, function(err, user) {
                 if (err) {
