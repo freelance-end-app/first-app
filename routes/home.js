@@ -9,14 +9,11 @@ var Products = require('../models/product');
 
 app.get('/', function(req, res){
   if(req.user) {
-    console.log(req.user.id);
-
 
   Products.find({userId:req.user.id}, function(err, products){
     if (err) {
       res.send(err);
     }
-console.log(products);
   res.render('home',{
     user:req.user,
     products:products
