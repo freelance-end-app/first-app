@@ -16,6 +16,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 var config = require('./config');
+var config = require('./config');
 var exphbs  = require('express-handlebars');
 
 
@@ -90,6 +91,7 @@ require('./routes/singup');
 require('./routes/login');
 require('./routes/home');
 require('./routes/mail');
+require('./routes/product');
 
 
 

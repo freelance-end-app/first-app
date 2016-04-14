@@ -1,5 +1,8 @@
 <h1>This is homepage</h1>
 {{#if user }}
-  <h2> Hello {{user.name}} in this place you are going to add products</h2>
+  <h2> Hello {{user.name}} This is your products</h2>
+  {{#each products}}
+  <li>{{this.name}} - {{this.price}}</li>
+  {{/each}}
 
 {{/if}}
