@@ -49,11 +49,12 @@ app.get('/edit', function(req, res) {
 
 app.post('/edit', function(req, res) {
 
-  User.update({username:req.body.username},
+  User.update({username:req.user.username},
 				{ $set: {
 					name:req.body.name,
 					email:req.body.email,
-          picture:req.body.picture
+          picture:req.body.picture,
+          username:req.body.username
 				}
 				}, function (err, data){
 					if (err) {
