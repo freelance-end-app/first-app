@@ -1,14 +1,17 @@
-<div class="picture">
 
-
-<div class="form-group">
-<img id="imgPlaceholder" alt="avatar" />
-</div>
-<button class="btn btn-default" id="uploadPhotoBtn">Chose profile photo</button>
-</div>
 
 {{#if user}}
+<div class="picture">
+<div class="form-group">
+<img id="imgPlaceholder" alt="" />
+</div>
+<button class="btn btn-default" id="uploadPhotoBtn">Change profile photo</button>
+</div>
+<div class="avatar">
+
+
 <img src="{{user.picture}}" alt="" />
+</div>
 <form action="/edit" method="POST">
   <legend> Sing Up  </legend>
   <div class="form-group">
@@ -38,6 +41,14 @@
   <button type="submit" class="btn btn-default">Sing Up</button>
 </form>
 {{else}}
+<div class="picture">
+
+
+<div class="form-group">
+<img id="imgPlaceholder" alt="avatar" />
+</div>
+<button class="btn btn-default" id="uploadPhotoBtn">Chose profile photo</button>
+</div>
 <form action="/singup" method="POST">
   <legend> Sing Up  </legend>
   <div class="form-group">
