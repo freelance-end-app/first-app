@@ -8,15 +8,12 @@ var flash = require('express-flash');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var config = require('./config');
-var exphbs = require('express-handlebars');
 
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 
-var config = require('./config');
-var config = require('./config');
 var exphbs  = require('express-handlebars');
 
 
