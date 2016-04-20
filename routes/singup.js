@@ -1,7 +1,5 @@
 var app = require('../app');
 var User = require('../models/User');
-var Gig = require('../models/Gig');
-
 var passport = require('passport');
 var fs = require('fs');
 

@@ -89,6 +89,7 @@ require('./routes/login');
 require('./routes/home');
 require('./routes/mail');
 require('./routes/product');
+require('./routes/gig');
 
 
 
