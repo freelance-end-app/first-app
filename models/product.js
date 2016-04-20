@@ -1,11 +1,11 @@
-var  mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 
 var productSchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  userId: String,
-  price: Number,
-  purchases: Array
+    name: { type: String, required: true },
+    userId: String,
+    price: Number,
+    purchases: Array
 });
 
 
