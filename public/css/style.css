@@ -3,8 +3,14 @@ form  {
 }
 .picture {
   padding: 0px 60px 0px 80px;
-
+}
 
 .mainNav {
   padding-left: 50px;
+}
+.picture {
+  float: left;
+}
+.avatar {
+  float:righ;
 }
